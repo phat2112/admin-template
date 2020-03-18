@@ -1,24 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Login from 'Container/Login'
+import Register from 'Container/Register';
+import SneakerDetail from 'Container/ShoeItem';
+import AuthTemplate from 'Container/AuthTemplate'
+import DashboardContainer from 'Container/Dashboard'
+import ForgotPasswordContainer from 'Container/ForgotPassword'
+import RouteAdminTemplate from 'Container/AdminTemplate';
+import PaymentPageContainer from 'Container/PaymentPage';
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <AuthTemplate exact path='/login' component={Login}/>
+          <AuthTemplate exact path='/register' component={Register}/>
+          <AuthTemplate exact path='/forgot-password' component={ForgotPasswordContainer}/>
+          <RouteAdminTemplate exact path='/dashboard' component={DashboardContainer}/>
+          <RouteAdminTemplate exact path='/sneaker-detail/:id' component={SneakerDetail}/>
+          <RouteAdminTemplate exact path='/payment/:id' component={PaymentPageContainer}/>
+          <Redirect exact from="/" to="/dashboard" />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

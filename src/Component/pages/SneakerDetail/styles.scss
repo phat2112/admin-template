@@ -1,0 +1,64 @@
+.sneaker-detail{
+    margin-top:75px;
+    margin-bottom: 30px;
+    h1{
+        text-align:center;
+    }
+    &-container{
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+    }
+    &-content, &-image{
+        width:47%;
+        border: 1px solid rgba(0,0,0,.2);
+        height:300px;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+    }
+}
+.sneaker-detail-content{
+    flex-direction: column;
+    .sneaker-info{
+        display: flex;
+        p{
+            margin-left: 10px;
+        }
+    }
+}
+.selling-option{
+    display: flex;
+}
+.sneaker-selling-button{
+   button{
+    background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
+    width:150px;
+    height:40px;
+    border:none;
+    border-radius:20px;
+    font-size: 20px;
+    color:#fff;
+    transition: .4s;
+    cursor: pointer;
+    &:hover{
+        background: transparent;
+        color: #0cebeb;
+        border: 1px solid #0cebeb;
+    }
+   }
+}
+.sneaker-detail-image{
+    overflow: hidden;
+    cursor: pointer;
+    img{
+        max-width: 100%;
+        max-height: 275px;
+        transition: .4s;
+    }
+    &:hover{
+        img{
+            transform: scale(1.2);
+        }
+    }
+}
